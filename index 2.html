@@ -1,240 +1,518 @@
+https://maxiqueenos-ops.github.io/maxiqueen-os-digital/
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAXIQUEEN STORE | Moda y Tecnología</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAXIQUEEN STORE | Compra Directa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-light: #ffffff;
+      --text-dark: #ffffff;
+      --text-light: #111111;
+      --gold: #FFD700;
+      --green: #25D366;
+      --card-dark: #1a1a1a;
+      --card-light: #f5f5f5;
+    }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    body {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      line-height: 1.6;
+      transition: 0.3s;
+    }
 
-body {
-  background: #0f0f0f;
-  color: #fff;
-}
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #000, #1a1a1a);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px;
-}
+    a { text-decoration: none; }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #f5c77a;
-}
+    /* HEADER */
+    header {
+      background: #000;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-.hero p {
-  margin: 20px 0;
-  font-size: 1.1rem;
-  max-width: 600px;
-  color: #ddd;
-}
+    body.light header { background: #fff; border-bottom: 1px solid #ddd; }
 
-.btn {
-  background: linear-gradient(135deg, #f5c77a, #d4a84f);
-  color: #000;
-  padding: 15px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-}
+    header h1 { color: var(--gold); font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
 
-.btn:hover {
-  transform: scale(1.05);
-}
+    nav a {
+      color: inherit;
+      margin-left: 20px;
+      font-weight: 600;
+      opacity: 0.85;
+    }
 
-/* SECTIONS */
-.section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
+    nav a:hover { color: var(--gold); opacity: 1; }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.2rem;
-  color: #f5c77a;
-}
+    .toggle-btn {
+      margin-left: 20px;
+      background: none;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 700;
+    }
 
-/* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
+    /* HERO ULTRA VENTA */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background: radial-gradient(circle at top, rgba(255,215,0,0.15), transparent 60%),
+                  linear-gradient(to bottom, #000, #111);
+    }
 
-.card {
-  background: #1a1a1a;
-  border-radius: 20px;
-  padding: 25px;
-  transition: 0.3s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+    body.light .hero {
+      background: radial-gradient(circle at top, rgba(255,215,0,0.2), transparent 60%),
+                  linear-gradient(to bottom, #fff, #f5f5f5);
+    }
 
-.card:hover {
-  transform: translateY(-10px);
-}
+    .hero h2 {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
 
-.card h3 {
-  color: #f5c77a;
-  margin-bottom: 10px;
-}
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
 
-.card p {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin-bottom: 10px;
-}
+    .hero .cta {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 18px 36px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+      transition: 0.25s;
+    }
 
-.price {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
+    .hero .cta:hover { transform: scale(1.05); background: #1ebe5d; }
 
-.card a {
-  display: inline-block;
-  background: #f5c77a;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-}
+    .hero .trust {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      opacity: 0.75;
+    }
 
-/* WHATSAPP FLOAT */
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: #fff;
-  padding: 15px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-}
+    /* BENEFICIOS */
+    .benefits {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
 
-/* FOOTER */
-footer {
-  background: #000;
-  padding: 30px;
-  text-align: center;
-  color: #aaa;
-  font-size: 0.9rem;
-}
-</style>
+    .benefits h3 {
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 50px;
+      font-weight: 800;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .benefit-card {
+      background: var(--card-dark);
+      padding: 30px 25px;
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+
+    body.light .benefit-card { background: var(--card-light); }
+
+    .benefit-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+    .benefit-card h4 { color: var(--gold); font-size: 1.3rem; margin-bottom: 10px; }
+
+    /* PRODUCTOS */
+    .products {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .products h3 {
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 50px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
+    }
+
+    .card {
+      background: var(--card-dark);
+      padding: 25px;
+      border-radius: 22px;
+      text-align: center;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    body.light .card { background: var(--card-light); }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+
+    .card img { max-width: 100%; border-radius: 14px; margin-bottom: 18px; }
+
+    .card h4 { color: var(--gold); margin-bottom: 6px; font-size: 1.2rem; }
+
+    .price { font-size: 1.2rem; font-weight: 700; margin-bottom: 14px; }
+
+    .card a {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 800;
+      transition: 0.25s;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+    }
+
+    .card a:hover { background: #1ebe5d; transform: scale(1.05); }
+
+    .badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+
+    /* TESTIMONIOS */
+    .testimonials {
+      padding: 90px 20px;
+      background: linear-gradient(to bottom, #111, #000);
+      text-align: center;
+    }
+
+    body.light .testimonials {
+      background: linear-gradient(to bottom, #f5f5f5, #fff);
+    }
+
+    .testimonials h3 {
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 50px;
+      font-weight: 800;
+    }
+
+    .testimonials-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial {
+      background: var(--card-dark);
+      padding: 28px 24px;
+      border-radius: 20px;
+      font-style: italic;
+      transition: 0.3s;
+    }
+
+    body.light .testimonial { background: var(--card-light); }
+
+    .testimonial:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.25); }
+
+    .testimonial span {
+      display: block;
+      margin-top: 12px;
+      font-style: normal;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    /* COMO COMPRAR */
+    .how-to {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .how-to h3 { color: var(--gold); font-size: 2.3rem; margin-bottom: 30px; font-weight: 800; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .step {
+      background: var(--card-dark);
+      padding: 25px;
+      border-radius: 18px;
+      font-weight: 600;
+    }
+
+    body.light .step { background: var(--card-light); }
+
+    .step span {
+      display: block;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* CTA FINAL */
+    .final-cta {
+      padding: 90px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(37,211,102,0.2), transparent 60%),
+                  linear-gradient(to bottom, #000, #111);
+    }
+
+    body.light .final-cta {
+      background: radial-gradient(circle at top, rgba(37,211,102,0.15), transparent 60%),
+                  linear-gradient(to bottom, #fff, #f5f5f5);
+    }
+
+    .final-cta h3 {
+      font-size: 2.6rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .final-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .final-cta a {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 20px 40px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 12px 35px rgba(37,211,102,0.35);
+      transition: 0.25s;
+    }
+
+    .final-cta a:hover { transform: scale(1.06); background: #1ebe5d; }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    body.light footer { background: #fff; color: #111; border-top: 1px solid #ddd; }
+
+    /* BOTÓN WHATSAPP FLOTANTE */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--green);
+      color: #fff;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 12px 30px rgba(37,211,102,0.4);
+      z-index: 100;
+      transition: 0.25s;
+    }
+
+    .whatsapp-float:hover { transform: scale(1.1); background: #1ebe5d; }
+
+    /* RESPONSIVE */
+    @media(max-width: 640px) {
+      .hero h2 { font-size: 2.2rem; }
+      .benefits h3,
+      .products h3,
+      .testimonials h3,
+      .how-to h3,
+      .final-cta h3 { font-size: 2rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>MAXIQUEEN STORE</h1>
-  <p>Moda deportiva, accesorios y tecnología al mejor precio. Compra rápida y atención directa por WhatsApp.</p>
-  <a class="btn" href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Hola+MAXIQUEEN,+quiero+comprar">Comprar por WhatsApp</a>
-</section>
+  <!-- HEADER -->
+  <header>
+    <h1>MAXIQUEEN</h1>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#como-comprar">Cómo comprar</a>
+      <button class="toggle-btn" onclick="toggleMode()">🌗</button>
+    </nav>
+  </header>
 
-<!-- DAMA -->
-<section class="section">
-  <h2>Moda Deportiva Dama</h2>
-  <div class="products">
-
-    <div class="card">
-      <h3>Conjunto Deportivo Chinzado</h3>
-      <p>Diseño moderno, cómodo y resistente.</p>
-      <p class="price">$47.000 COP</p>
-      <a href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Quiero+el+conjunto+chinzado">Comprar</a>
+  <!-- HERO ULTRA VENTA -->
+  <section class="hero" id="inicio">
+    <div>
+      <h2>Compra fácil. Recibe rápido. Paga seguro.</h2>
+      <p>Productos virales, moda y gadgets con entrega directa a tu casa. Compra en segundos por WhatsApp sin formularios ni complicaciones.</p>
+      <a class="cta" href="https://wa.me/573016625921?text=Hola%20MAXIQUEEN%20STORE.%20Quiero%20hacer%20un%20pedido." target="_blank">Comprar ahora por WhatsApp</a>
+      <div class="trust">⚡ Atención inmediata · 🚚 Envíos rápidos · 🔒 Compra segura</div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Leggins Chinzado con Logo</h3>
-      <p>Ajuste perfecto y tela de alta calidad.</p>
-      <p class="price">$48.000 COP</p>
-      <a href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Quiero+el+leggins+chinzado">Comprar</a>
+  <!-- BENEFICIOS -->
+  <section class="benefits">
+    <h3>¿Por qué comprar en MAXIQUEEN?</h3>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h4>⚡ Compra directa</h4>
+        <p>Sin registros, sin carritos, sin procesos largos. Un clic y listo.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>🚚 Entrega rápida</h4>
+        <p>Despachamos a tu casa con seguimiento claro y seguro.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>💬 Atención humana</h4>
+        <p>Hablas directo con una persona real por WhatsApp.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>🔥 Productos virales</h4>
+        <p>Seleccionamos solo lo que está funcionando en tendencia.</p>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- PRODUCTOS -->
+  <section class="products" id="productos">
+    <h3>Productos más vendidos</h3>
+    <div class="grid">
 
-<!-- CABALLERO -->
-<section class="section">
-  <h2>Moda Deportiva Caballero</h2>
-  <div class="products">
+      <div class="card">
+        <span class="badge">🔥 Más vendido</span>
+        <img src="https://via.placeholder.com/260x260" alt="Auriculares inalámbricos">
+        <h4>Auriculares inalámbricos</h4>
+        <div class="price">$35.000 COP</div>
+        <a href="https://wa.me/573016625921?text=Hola%20MAXIQUEEN%20STORE.%20Quiero%20comprar%20los%20auriculares%20inalámbricos." target="_blank">Comprar por WhatsApp</a>
+      </div>
 
-    <div class="card">
-      <h3>Conjunto Multimarca Importado</h3>
-      <p>Ideal para entrenar o uso diario.</p>
-      <p class="price">$60.000 COP</p>
-      <a href="https://api.whatsapp.com/send/?phone=3016625921&text=Quiero+el+conjunto+caballero">Comprar</a>
+      <div class="card">
+        <span class="badge">⭐ Recomendado</span>
+        <img src="https://via.placeholder.com/260x260" alt="Conjunto deportivo mujer">
+        <h4>Conjunto deportivo mujer</h4>
+        <div class="price">$55.000 COP</div>
+        <a href="https://wa.me/573016625921?text=Hola%20MAXIQUEEN%20STORE.%20Quiero%20comprar%20el%20conjunto%20deportivo." target="_blank">Comprar por WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <span class="badge">💨 Nuevo</span>
+        <img src="https://via.placeholder.com/260x260" alt="Ventilador USB portátil">
+        <h4>Ventilador USB portátil</h4>
+        <div class="price">$25.000 COP</div>
+        <a href="https://wa.me/573016625921?text=Hola%20MAXIQUEEN%20STORE.%20Quiero%20comprar%20el%20ventilador%20USB%20portátil." target="_blank">Comprar por WhatsApp</a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- TECNOLOGÍA -->
-<section class="section">
-  <h2>Tecnología y Accesorios</h2>
-  <div class="products">
-
-    <div class="card">
-      <h3>Auriculares Inalámbricos TWS F9</h3>
-      <p>Bluetooth, sonido HD y estuche con batería.</p>
-      <p class="price">$60.000 COP</p>
-      <a href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Quiero+los+auriculares+TWS+F9">Comprar</a>
+  <!-- TESTIMONIOS -->
+  <section class="testimonials" id="testimonios">
+    <h3>Clientes felices</h3>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        “Me encantó el conjunto deportivo, llegó rápido y tal cual las fotos. ⭐⭐⭐⭐⭐”
+        <span>— Laura G.</span>
+      </div>
+      <div class="testimonial">
+        “Excelente atención por WhatsApp, compré y al otro día ya lo tenía.”
+        <span>— Andrés M.</span>
+      </div>
+      <div class="testimonial">
+        “Muy confiables, productos buenos y precios justos. Repetiré.”
+        <span>— Daniela R.</span>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Mini Ventilador USB</h3>
-      <p>Portátil, práctico y potente.</p>
-      <p class="price">$43.990 COP</p>
-      <a href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Quiero+el+mini+ventilador">Comprar</a>
+  <!-- COMO COMPRAR -->
+  <section class="how-to" id="como-comprar">
+    <h3>Cómo comprar</h3>
+    <div class="steps">
+      <div class="step"><span>1</span>Elige tu producto</div>
+      <div class="step"><span>2</span>Haz clic en comprar por WhatsApp</div>
+      <div class="step"><span>3</span>Confirma tu pedido por chat</div>
+      <div class="step"><span>4</span>Recibe en tu casa y paga seguro</div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Reloj Digital Vintage</h3>
-      <p>Estilo urbano y ligero.</p>
-      <p class="price">$13.990 COP</p>
-      <a href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Quiero+el+reloj+vintage">Comprar</a>
-    </div>
+  <!-- CTA FINAL -->
+  <section class="final-cta">
+    <h3>¿Listo para tu pedido?</h3>
+    <p>Haz clic ahora y compra en menos de 60 segundos.</p>
+    <a href="https://wa.me/573016625921?text=Hola%20MAXIQUEEN%20STORE.%20Quiero%20hacer%20un%20pedido." target="_blank">Comprar ahora por WhatsApp</a>
+  </section>
 
-  </div>
-</section>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 MAXIQUEEN STORE — Todos los derechos reservados
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  © MAXIQUEEN STORE · Moda · Tecnología · WhatsApp Directo
-</footer>
+  <!-- BOTÓN WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/573016625921?text=Hola%20MAXIQUEEN%20STORE.%20Quiero%20información." target="_blank" class="whatsapp-float">💬</a>
 
-<a class="whatsapp" href="https://api.whatsapp.com/send/?phone=TU_NUMERO_AQUI&text=Hola+MAXIQUEEN">WhatsApp</a>
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+    }
+  </script>
 
 </body>
 </html>
-
-<header>Hero + CTA</header>
-<section id="que-es">¿Qué es MaxiQueen OS?</section>
-<section id="como-funciona">Cómo funciona</section>
-<section id="modulos">Módulos del sistema</section>
-<section id="para-quien">Para quién es</section>
-<section id="vision">Visión</section>
-<section id="cta-final">Llamado a la acción</section>
-<footer>Redes sociales + contacto</footer>
