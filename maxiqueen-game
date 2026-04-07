@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MAX & QUEEN — Nivel 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- PANTALLA INICIO -->
+  <div id="inicio" class="screen active">
+    <h1>MAX & QUEEN</h1>
+    <p>No entraste aquí por curiosidad…<br>entraste porque algo no está bien.</p>
+    <button onclick="startGame()">INICIAR</button>
+  </div>
+
+  <!-- NIVEL 1 -->
+  <div id="nivel1" class="screen">
+    <h2>Estado: Automático</h2>
+    <p>Quieres hacer algo… pero no sabes qué.</p>
+
+    <div class="choices">
+      <button onclick="accion('fumar')">Fumar</button>
+      <button onclick="accion('sexo')">Buscar sexo</button>
+      <button onclick="accion('contenido')">Ver contenido</button>
+      <button onclick="accion('dormir')">Dormir</button>
+    </div>
+
+    <p id="resultado"></p>
+
+    <button id="continuar" onclick="mostrarJuego()" style="display:none;">
+      Continuar
+    </button>
+  </div>
+
+  <!-- MINI JUEGO -->
+  <div id="minijuego" class="screen">
+    <h2>Ordena tu mente</h2>
+    <p>Haz clic en los números en orden (1 → 4)</p>
+
+    <div id="grid">
+      <button onclick="clickNum(3)">3</button>
+      <button onclick="clickNum(1)">1</button>
+      <button onclick="clickNum(4)">4</button>
+      <button onclick="clickNum(2)">2</button>
+    </div>
+
+    <p id="feedback"></p>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
